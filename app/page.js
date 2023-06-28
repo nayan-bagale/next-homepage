@@ -37,7 +37,7 @@ export default function Home() {
           <p className=" text-black">
             Heartfulness International Sports Center <br />
             HISC empowers children and youth to unlock <br />
-            their heart's potential through sports, fostering <br />
+            their heart&apos;s potential through sports, fostering <br />
             holistic well-being and personal growth.
           </p>
           <button className=" flex justify-center items-center text-xs rounded-full border border-gray-700 p-3 pl-6 pr-2 font-medium text-gray-600 w-fit">
