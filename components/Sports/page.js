@@ -70,6 +70,7 @@ function page() {
             width={24.03}
             height={39.65}
             className=" absolute right-[-0.70rem] top-[-0.1rem] "
+            alt="icon"
           />
         </div>
         <div
@@ -81,6 +82,7 @@ function page() {
             width={22.87}
             height={39.5}
             className=" absolute  right-[-0.70rem]"
+            alt="icon"
           />
         </div>
         <div
@@ -92,6 +94,7 @@ function page() {
             width={38.54}
             height={19.2}
             className=" absolute -right-4 top-[0.75rem]"
+            alt="icon"
           />
         </div>
         <div
@@ -103,6 +106,7 @@ function page() {
             width={31.3}
             height={38.13}
             className=" absolute right-[-0.85rem]"
+            alt="icon"
           />
         </div>
       </div>
