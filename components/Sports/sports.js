@@ -39,7 +39,9 @@ function sports() {
             />
           </div>
         </div>
-        <div className=" w-[304px] h-[371.56px] bg-white rounded-[8px] mx-16 flex flex-col items-center justify-center">
+
+        {/* Middle Cards */}
+        <div className=" z-20 w-[304px] h-[371.56px] bg-white rounded-[8px] mx-16 flex flex-col items-center justify-center">
           <div className=" left-[-2rem] top-[-3.5rem] relative bg-[#F1F8FF] rounded-full w-[112.59px] h-[112.59px]">
             <Image
               src={"/badminton-small.svg"}
@@ -50,6 +52,9 @@ function sports() {
           </div>
           <div className=" text-[#1F1F1F] font-bold text-2xl">BADMINTON</div>
         </div>
+        {/* End Middle Cards */}
+
+        {/* Side heading & paragraph */}
         <div className=" w-[28.688rem] gap-2 flex flex-col">
           <h1 className=" text-4xl font-bold">
             Empowering Badminton Excellence
@@ -63,6 +68,9 @@ function sports() {
             players.
           </p>
         </div>
+        {/* End Side heading & paragraph */}
+
+        {/* Two flooted SVGs */}
         <Image
           src={"/shuttel.svg"}
           width={69}
@@ -75,6 +83,9 @@ function sports() {
           height={69.62}
           className=" absolute bottom-[30%] right-[20%] rotate-90"
         />
+        {/* End SVGs */}
+
+        {/* Sports Images */}
         <Image
           src={"/badminton-img1.jpg"}
           width={240}
@@ -93,6 +104,32 @@ function sports() {
           height={170}
           className=" absolute bottom-0 right-[15%] z-20"
         />
+        {/* End Sports Images */}
+
+        {/* Two blur cards flooting up & down */}
+        <div className=" z-10 bottom-[-2rem] left-11 absolute scale-[.70] opacity-50 blur w-[304px] h-[371.56px] bg-white rounded-[8px] mx-16 flex flex-col items-center justify-center">
+          <div className=" left-[-2rem] top-[-3.5rem] relative bg-[#F1F8FF] rounded-full w-[112.59px] h-[112.59px]">
+            <Image
+              src={"/badminton-small.svg"}
+              width={70.06}
+              height={115.56}
+              className=" absolute right-[-2rem] top-[-0.4rem]"
+            />
+          </div>
+          <div className=" text-[#1F1F1F] font-bold text-2xl">BADMINTON</div>
+        </div>
+        <div className=" z-10 top-[-2rem] left-11 absolute scale-[.70] opacity-50 blur w-[304px] h-[371.56px] bg-white rounded-[8px] mx-16 flex flex-col items-center justify-center">
+          <div className=" left-[-2rem] top-[-3.5rem] relative bg-[#F1F8FF] rounded-full w-[112.59px] h-[112.59px]">
+            <Image
+              src={"/badminton-small.svg"}
+              width={70.06}
+              height={115.56}
+              className=" absolute right-[-2rem] top-[-0.4rem]"
+            />
+          </div>
+          <div className=" text-[#1F1F1F] font-bold text-2xl">BADMINTON</div>
+        </div>
+        {/* End */}
       </div>
     </section>
   );
