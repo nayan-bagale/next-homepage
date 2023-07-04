@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import Image from "next/image";
 import Template from "./Template";
 
-function page() {
+function Page() {
 
     const [select, setSelect] = useState('badminton')
 
@@ -115,4 +115,4 @@ function page() {
   );
 }
 
-export default page;
+export default Page;
