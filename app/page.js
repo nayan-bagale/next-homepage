@@ -1,6 +1,6 @@
 import Image from "next/image";
 import {BsCaretRight} from 'react-icons/bs'
-import Sports from '../components/Sports/Page'
+import Sports from '../components/Sports/page'
 
 export default function Home() {
   return (
