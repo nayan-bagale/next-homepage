@@ -1,12 +1,11 @@
-"use client"
+"use client";
 
 import React, { useState } from "react";
 import Image from "next/image";
 import Template from "./Template";
 
 function Page() {
-
-    const [select, setSelect] = useState('badminton')
+  const [select, setSelect] = useState("badminton");
 
   const data = {
     badminton: {
@@ -39,7 +38,7 @@ function Page() {
       img2: "/swim-img2.jpg",
       img3: "/swim-img3.jpg",
       svg1: "/swim-small.svg",
-      h2:"SWIMMING",
+      h2: "SWIMMING",
       svg2: "/poolh.svg",
     },
     squash: {
@@ -50,7 +49,7 @@ function Page() {
       img2: "/squash-img2.jpg",
       img3: "/squash-img3.jpg",
       svg1: "/squash-small.svg",
-      h2:"SQUASH",
+      h2: "SQUASH",
       svg2: "/squash-mini.svg",
     },
   };
