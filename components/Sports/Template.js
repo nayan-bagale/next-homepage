@@ -4,7 +4,7 @@ function Template({ data, all_data }) {
   return (
     <div className=" ml-32 flex items-center min-h-screen relative">
       {/* Middle Cards */}
-      <div className=" z-20 w-[304px] h-[371.56px] bg-white rounded-[8px] mx-16 flex flex-col items-center justify-center">
+      <div className=" relative z-20 w-[304px] h-[371.56px] bg-white rounded-[8px] mx-16 flex flex-col items-center justify-center">
         <div className=" left-[-2rem] top-[-2.5rem] relative bg-[#F1F8FF] rounded-full w-[112.59px] h-[112.59px]">
           <Image
             src={data.svg[1].img}
@@ -14,13 +14,15 @@ function Template({ data, all_data }) {
             alt="svg"
           />
         </div>
-        <div className=" text-[#1F1F1F] font-bold text-2xl">{data.h2}</div>
+        <div className=" absolute text-[#1F1F1F] font-bison font-bold text-2xl bottom-[25%] left-[21%]">
+          {data.h2}
+        </div>
       </div>
       {/* End Middle Cards */}
 
       {/* Side heading & paragraph */}
       <div className=" w-[50rem] gap-2 flex flex-col">
-        <h1 className=" text-5xl font-bold">{data.h1}</h1>
+        <h1 className=" font-bison text-5xl font-bold">{data.h1}</h1>
         <p className=" text-base leading-8">{data.p}</p>
       </div>
       {/* End Side heading & paragraph */}

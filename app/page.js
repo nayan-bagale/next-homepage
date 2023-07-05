@@ -32,7 +32,7 @@ export default function Home() {
               <p className=" text-sm border-0 p-2 px-4 rounded-full bg-red-500 w-fit">
                 START YOUR HEALTY LIFESTYLE!
               </p>
-              <h1 className=" font-dosis text-6xl tracking-tighter text-black font-semibold">
+              <h1 className=" font-bison text-6xl tracking-tighter text-black font-semibold">
                 BEGIN YOUR <br />
                 TRANSFORMATION <br />
                 TODAY
