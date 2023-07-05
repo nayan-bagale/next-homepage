@@ -1,6 +1,6 @@
 import Image from "next/image";
 
-function Template({data}) {
+function Template({ data }) {
   return (
     <div className=" ml-32 flex items-center min-h-screen relative">
       {/* Middle Cards */}
@@ -8,9 +8,9 @@ function Template({data}) {
         <div className=" left-[-2rem] top-[-2.5rem] relative bg-[#F1F8FF] rounded-full w-[112.59px] h-[112.59px]">
           <Image
             src={data.svg1}
-            width={70.06}
+            width={data.svg1_width}
             height={115.56}
-            className=" absolute right-[-2rem] top-[-0.4rem]"
+            className={" absolute " + data.svg1_pos}
             alt="svg"
           />
         </div>
@@ -37,7 +37,7 @@ function Template({data}) {
         src={data.svg2}
         width={69.0}
         height={69.0}
-        className=" absolute bottom-[28%] right-[23%] w-auto h-auto rotate-[100deg]"
+        className=" absolute bottom-[28%] right-[23%] w-auto h-auto -scale-x-100"
         alt="svg2"
       />
       {/* End SVGs */}
