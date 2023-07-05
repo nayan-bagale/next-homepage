@@ -59,52 +59,52 @@ function Page() {
       className=" relative min-h-screen w-full"
       style={{ background: data[select].color }}
     >
-      <div className=" absolute top-[35%]">
+      <div className=" absolute top-[38%]">
         <div
-          className=" relative bg-white w-[38.63px] h-[38.63px] rounded-full mb-4 ml-2 cursor-pointer"
+          className=" relative bg-white w-[50.63px] h-[50.63px] rounded-full mb-4 ml-12 cursor-pointer"
           onClick={() => setSelect("badminton")}
         >
           <Image
             src={"/badminton-icon.svg"}
-            width={24.03}
+            width={35.03}
             height={39.65}
-            className=" absolute right-[-0.70rem] top-[-0.1rem] "
+            className=" absolute right-[-0.90rem] top-[-0.3rem] "
             alt="icon"
           />
         </div>
         <div
-          className=" relative bg-white w-[38.63px] h-[38.63px] rounded-full mb-4 ml-2 cursor-pointer"
+          className=" relative bg-white w-[50.63px] h-[50.63px] rounded-full mb-4 ml-12 cursor-pointer"
           onClick={() => setSelect("gym")}
         >
           <Image
             src={"/gym-icon.svg"}
-            width={22.87}
+            width={30.87}
             height={39.5}
-            className=" absolute  right-[-0.70rem]"
+            className=" absolute top-[-0.2rem] right-[-0.90rem]"
             alt="icon"
           />
         </div>
         <div
-          className=" relative bg-white w-[38.63px] h-[38.63px] rounded-full mb-4 ml-2 cursor-pointer"
+          className=" relative bg-white w-[50.63px] h-[50.63px] rounded-full mb-4 ml-12 cursor-pointer"
           onClick={() => setSelect("swimming")}
         >
           <Image
             src={"/swiming-icon.svg"}
-            width={38.54}
+            width={50.54}
             height={19.2}
-            className=" absolute -right-4 top-[0.75rem]"
+            className=" absolute -right-6 top-[0.75rem]"
             alt="icon"
           />
         </div>
         <div
-          className=" relative bg-white w-[38.63px] h-[38.63px] rounded-full mb-4 ml-2 cursor-pointer"
+          className=" relative bg-white w-[50.63px] h-[50.63px] rounded-full mb-4 ml-12 cursor-pointer"
           onClick={() => setSelect("squash")}
         >
           <Image
             src={"/tennis-icon.svg"}
-            width={31.3}
+            width={45.3}
             height={38.13}
-            className=" absolute right-[-0.85rem]"
+            className=" absolute right-[-1.2rem] top-[-0.2rem]"
             alt="icon"
           />
         </div>
