@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import Template from "./Template";
+import { motion } from "framer-motion";
 
 const data = {
     badminton: {
@@ -130,9 +131,11 @@ function Page() {
 
 
   return (
-    <section
+    <motion.section
       className=" relative min-h-[100vh] w-full"
       style={{ background: data[select].color }}
+      initial={{opacity:0}}
+      animate={{opacity:1}}
     >
       <div className=" absolute top-[35%]">
         <div
@@ -203,7 +206,7 @@ function Page() {
       {/* <Template data={data['gym']} all_data={data} />
       <Template data={data["swimming"]} all_data={data} />
       <Template data={data["squash"]} all_data={data} /> */}
-    </section>
+    </motion.section>
   );
 }
 

@@ -5,7 +5,7 @@ import Sports from '../components/Sports/page'
 export default function Home() {
   return (
     <main>
-      <section className=" section-1 min-h-screen w-full bg-img-1">
+      {/* <section className=" section-1 min-h-screen w-full bg-img-1">
         <div className=" h-full">
           <div className="flex flex-col min-h-screen w-4/5 m-auto justify-center">
             <div className=" absolute top-0 flex justify-between w-[inherit] items-center h-32">
@@ -49,7 +49,7 @@ export default function Home() {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* <div className=" absolute  bottom-16 right-5 text-lg p-4 bg-gray-900 rounded-full">
         <IoTriangleSharp className="" />
