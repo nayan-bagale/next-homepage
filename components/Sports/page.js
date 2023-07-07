@@ -4,11 +4,9 @@ import React, { useState } from "react";
 import Image from "next/image";
 import Template from "./Template";
 
-function Page() {
-  const [select, setSelect] = useState("badminton");
-
-  const data = {
+const data = {
     badminton: {
+      id: 1,
       color: "#009990",
       h1: "EMPOWERING BADMINTON EXCELLENCE",
       p: `With 40 full-time students residing and training in Kanha, they will receive top-notch coaching from the Pullela Gopichand Badminton Academy. Our international-quality facility boasts 14 courts, a 100-person viewing gallery, and the capacity to host tournaments at all levels. Join us as we nurture the talent of aspiring badminton players.`,
@@ -34,6 +32,7 @@ function Page() {
       },
     },
     gym: {
+      id: 2,
       color: "#474747",
       h1: "FITNESS OASIS AWAITS",
       p: `We have a fully equipped gym where you can begin or continue your fitness journey. There are numerous benefits to joining a gym and incorporating regular exercise into your routine. Overall, the benefits of joining a gym go beyond physical health and can positively impact mental and emotional wellbeing as well`,
@@ -59,6 +58,7 @@ function Page() {
       },
     },
     swimming: {
+      id: 3,
       color: "#0479CE",
       h1: "SPLASH INTO WELLNESS",
       p: `Dive into the world of swimming, a beloved water-based activity that offers a full-body workout through arm and leg movements. Whether for leisure or competition, swimming engages muscles throughout the body, providing a low-impact exercise option. Our facility boasts a semi-heated indoor swimming pool with 25 meters and 5 lanes, perfect for leisurely swims or learn-to-swim programs. Additionally, it serves as an excellent venue for athlete warm-ups, cool-downs, and rehabilitation exercises. Jump in and make a splash!`,
@@ -84,6 +84,7 @@ function Page() {
       },
     },
     squash: {
+      id: 4,
       color: "#FB491D",
       h1: "MASTER THE SQUASH",
       p: `Squash is a popular racquet sport that is played by two or four players in a four-walled court with a small, hollow rubber ball. The objective of the game is to hit the ball against the front wall, making it difficult for the opponent to return the ball. Three international-standard wooden courts Capable of hosting state and national tournaments A viewing gallery with seating for 50 persons`,
@@ -110,18 +111,36 @@ function Page() {
     },
   };
 
+function Page() {
+  const [select, setSelect] = useState("badminton");
+  const [animateVal, setAnimateVal] = useState(1);
+  const [boolean, setBoolean] = useState(true);
+
+  const handleclick = (name) => {
+    setSelect(name);
+    setAnimateVal((prev) => {
+      if (prev < data[name].id){
+        setBoolean(true)
+      }else{
+        setBoolean(false);
+      }
+      return data[name].id;
+    })
+  }
+
+
   return (
     <section
-      className=" relative min-h-screen w-full"
+      className=" relative min-h-[100vh] w-full"
       style={{ background: data[select].color }}
     >
-      <div className=" absolute top-[38%]">
+      <div className=" absolute top-[35%]">
         <div
           className=" relative w-[50.63px] h-[50.63px] rounded-full mb-4 ml-12 cursor-pointer "
           style={{
             backgroundColor: select !== "badminton" ? "#c1e5e9" : "#FFFFFF",
           }}
-          onClick={() => setSelect("badminton")}
+          onClick={() => handleclick("badminton")}
         >
           <Image
             src={"/badminton-icon.svg"}
@@ -136,7 +155,7 @@ function Page() {
           style={{
             backgroundColor: select !== "gym" ? "#c1e5e9" : "#FFFFFF",
           }}
-          onClick={() => setSelect("gym")}
+          onClick={() => handleclick("gym")}
         >
           <Image
             src={"/gym-icon.svg"}
@@ -151,7 +170,7 @@ function Page() {
           style={{
             backgroundColor: select !== "swimming" ? "#c1e5e9" : "#FFFFFF",
           }}
-          onClick={() => setSelect("swimming")}
+          onClick={() => handleclick("swimming")}
         >
           <Image
             src={"/swiming-icon.svg"}
@@ -166,7 +185,7 @@ function Page() {
           style={{
             backgroundColor: select !== "squash" ? "#c1e5e9" : "#FFFFFF",
           }}
-          onClick={() => setSelect("squash")}
+          onClick={() => handleclick("squash")}
         >
           <Image
             src={"/tennis-icon.svg"}
@@ -177,7 +196,13 @@ function Page() {
           />
         </div>
       </div>
-      <Template data={data[select]} all_data={data} />
+      {/* {data.map((data) => {
+        return <Template data={data} />;
+      })} */}
+      <Template data={data[select]} all_data={data} boolean={boolean} />
+      {/* <Template data={data['gym']} all_data={data} />
+      <Template data={data["swimming"]} all_data={data} />
+      <Template data={data["squash"]} all_data={data} /> */}
     </section>
   );
 }
