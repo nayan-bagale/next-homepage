@@ -1,9 +1,10 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import Image from "next/image";
-import Template from "./Template";
+import Template from "./desk_tab_Template";
 import { motion } from "framer-motion";
+import Mob from "./Mob";
 
 const data = {
     badminton: {
@@ -129,85 +130,146 @@ function Page() {
     })
   }
 
-
   return (
-    <motion.section
-      className=" relative min-h-[100vh] w-full"
-      style={{ background: data[select].color }}
-      initial={{opacity:0}}
-      animate={{opacity:1}}
-      transition={{duration:0.5}}
-    >
-      <div className=" absolute top-[35%]">
-        <div
-          className=" relative w-[50.63px] h-[50.63px] rounded-full mb-4 ml-12 cursor-pointer "
-          style={{
-            backgroundColor: select !== "badminton" ? "#c1e5e9" : "#FFFFFF",
-          }}
-          onClick={() => handleclick("badminton")}
-        >
-          <Image
-            src={"/badminton-icon.svg"}
-            width={35.03}
-            height={39.65}
-            className=" absolute right-[-0.90rem] top-[-0.3rem] "
-            alt="icon"
-          />
+    <>
+      <motion.section
+        className=" max-sm:hidden relative min-h-[100vh] w-full"
+        id="facility"
+        style={{ background: data[select].color }}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.5 }}
+      >
+        <div className=" absolute top-[35%] md:ml-4 lg:ml-12">
+          <div
+            className=" relative w-[50.63px] h-[50.63px] rounded-full mb-4 cursor-pointer "
+            style={{
+              backgroundColor: select !== "badminton" ? "#c1e5e9" : "#FFFFFF",
+            }}
+            onClick={() => handleclick("badminton")}
+          >
+            <Image
+              src={"/badminton-icon.svg"}
+              width={35.03}
+              height={39.65}
+              className=" absolute right-[-0.90rem] top-[-0.3rem] "
+              alt="icon"
+            />
+          </div>
+          <div
+            className=" relative w-[50.63px] h-[50.63px] rounded-full mb-4 cursor-pointer "
+            style={{
+              backgroundColor: select !== "gym" ? "#c1e5e9" : "#FFFFFF",
+            }}
+            onClick={() => handleclick("gym")}
+          >
+            <Image
+              src={"/gym-icon.svg"}
+              width={30.87}
+              height={39.5}
+              className=" absolute top-[-0.2rem] right-[-0.90rem]"
+              alt="icon"
+            />
+          </div>
+          <div
+            className=" relative w-[50.63px] h-[50.63px] rounded-full mb-4 cursor-pointer "
+            style={{
+              backgroundColor: select !== "swimming" ? "#c1e5e9" : "#FFFFFF",
+            }}
+            onClick={() => handleclick("swimming")}
+          >
+            <Image
+              src={"/swiming-icon.svg"}
+              width={50.54}
+              height={19.2}
+              className=" absolute -right-6 top-[0.75rem]"
+              alt="icon"
+            />
+          </div>
+          <div
+            className=" relative w-[50.63px] h-[50.63px] rounded-full mb-4 cursor-pointer "
+            style={{
+              backgroundColor: select !== "squash" ? "#c1e5e9" : "#FFFFFF",
+            }}
+            onClick={() => handleclick("squash")}
+          >
+            <Image
+              src={"/tennis-icon.svg"}
+              width={45.3}
+              height={38.13}
+              className=" absolute right-[-1.2rem] top-[-0.2rem]"
+              alt="icon"
+            />
+          </div>
         </div>
+        <Template data={data[select]} all_data={data} boolean={boolean} />
+      </motion.section>
+
+      {/* Mobile View Section */}
+      <section className=" relative max-sm:flex hidden min-h-screen">
         <div
-          className=" relative w-[50.63px] h-[50.63px] rounded-full mb-4 ml-12 cursor-pointer "
+          className=" h-[8rem] absolute w-full top-0 z-30"
           style={{
-            backgroundColor: select !== "gym" ? "#c1e5e9" : "#FFFFFF",
+            background: "rgb(255,255,255)",
+            background:
+              "linear-gradient(180deg, rgba(255,255,255,1) 30%, rgba(255,255,255,0) 100%)",
           }}
-          onClick={() => handleclick("gym")}
-        >
-          <Image
-            src={"/gym-icon.svg"}
-            width={30.87}
-            height={39.5}
-            className=" absolute top-[-0.2rem] right-[-0.90rem]"
-            alt="icon"
-          />
+        ></div>
+
+        <Mob data={data[select]} />
+
+        <div className="flex items-center justify-evenly py-5 bottom-0 shadow-md bg-[#F2F9FF] absolute w-full">
+          <div
+            className=" w-[2.5rem] h-[2.5rem] rounded-full bg-white relative"
+            onClick={() => setSelect("badminton")}
+          >
+            <Image
+              src={"/badminton-icon.svg"}
+              width={25.03}
+              height={0}
+              alt="svg"
+              className=" absolute right-[-0.5rem]"
+            />
+          </div>
+          <div
+            className=" w-[2.5rem] h-[2.5rem] rounded-full bg-white relative"
+            onClick={() => setSelect("gym")}
+          >
+            <Image
+              src={"/gym-icon.svg"}
+              width={22.87}
+              height={0}
+              alt="svg"
+              className=" absolute right-[-0.5rem] bottom-[0.2rem]"
+            />
+          </div>
+          <div
+            className=" w-[2.5rem] h-[2.5rem] rounded-full bg-white relative"
+            onClick={() => setSelect("swimming")}
+          >
+            <Image
+              src={"/swiming-icon.svg"}
+              width={35.54}
+              height={0}
+              alt="svg"
+              className=" absolute right-[-1rem] top-[30%]"
+            />
+          </div>
+          <div
+            className=" w-[2.5rem] h-[2.5rem] rounded-full bg-white relative"
+            onClick={() => setSelect("squash")}
+          >
+            <Image
+              src={"/tennis-icon.svg"}
+              width={30.3}
+              height={0}
+              alt="svg"
+              className=" absolute right-[-0.8rem]"
+            />
+          </div>
         </div>
-        <div
-          className=" relative w-[50.63px] h-[50.63px] rounded-full mb-4 ml-12 cursor-pointer "
-          style={{
-            backgroundColor: select !== "swimming" ? "#c1e5e9" : "#FFFFFF",
-          }}
-          onClick={() => handleclick("swimming")}
-        >
-          <Image
-            src={"/swiming-icon.svg"}
-            width={50.54}
-            height={19.2}
-            className=" absolute -right-6 top-[0.75rem]"
-            alt="icon"
-          />
-        </div>
-        <div
-          className=" relative w-[50.63px] h-[50.63px] rounded-full mb-4 ml-12 cursor-pointer "
-          style={{
-            backgroundColor: select !== "squash" ? "#c1e5e9" : "#FFFFFF",
-          }}
-          onClick={() => handleclick("squash")}
-        >
-          <Image
-            src={"/tennis-icon.svg"}
-            width={45.3}
-            height={38.13}
-            className=" absolute right-[-1.2rem] top-[-0.2rem]"
-            alt="icon"
-          />
-        </div>
-      </div>
-      {/* {data.map((data) => {
-        return <Template data={data} />;
-      })} */}
-      <Template data={data[select]} all_data={data} boolean={boolean} />
-      {/* <Template data={data['gym']} all_data={data} />
-      <Template data={data["swimming"]} all_data={data} />
-      <Template data={data["squash"]} all_data={data} /> */}
-    </motion.section>
+      </section>
+    </>
   );
 }
 

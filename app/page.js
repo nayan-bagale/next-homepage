@@ -1,6 +1,7 @@
 import Image from "next/image";
 import {BsCaretRight} from 'react-icons/bs'
-import Sports from '../components/Sports/page'
+import Sports from '../components/experimental/page'
+import Facility from '../components/Sports/page'
 
 export default function Home() {
   return (
@@ -54,7 +55,8 @@ export default function Home() {
       {/* <div className=" absolute  bottom-16 right-5 text-lg p-4 bg-gray-900 rounded-full">
         <IoTriangleSharp className="" />
       </div> */}
-      <Sports />
+      {/* <Sports /> */}
+      <Facility/>
     </main>
   );
 }
