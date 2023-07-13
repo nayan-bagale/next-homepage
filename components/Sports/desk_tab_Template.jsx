@@ -31,7 +31,7 @@ function Template({ data, all_data, boolean }) {
       key={data.h2}
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
-      transition={{ easeIn: 1 }}
+      transition={{ duration: 1 }}
     >
       {/* Up card */}
       <motion.div

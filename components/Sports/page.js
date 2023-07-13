@@ -130,7 +130,7 @@ function Page() {
     }
 
      // Specify the scroll length at which you want the function to be executed
-      const scrollLength = totalHeight/8;
+      const scrollLength = totalHeight/5;
 
       // Check if the current scroll position is greater than or equal to the scroll length
       if (
@@ -188,12 +188,12 @@ function Page() {
         className="max-sm:hidden h-[100vh] relative overflow-scroll facility"
       >
         <motion.section
-          className="  relative w-full h-[200vh]"
+          className="  relative w-full h-[300vh]"
           id="facility"
           style={{ background: data[select].color }}
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 0.5 }}
+          transition={{ duration: 2 }}
         >
           <div className=" sticky top-0">
             <div className=" absolute top-[35%] md:ml-4 lg:ml-12">
