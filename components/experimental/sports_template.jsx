@@ -4,26 +4,6 @@ import { motion, useInView, useScroll } from "framer-motion";
 import { useRef } from "react";
 
 function Template({ data, all_data, boolean }) {
-  const varientObj = {
-    default: {
-      animate: { y: 0, scale: 0.7 },
-      transition: { duration: 0.5 },
-    },
-    upTrue: {
-      initial: { y: 200, scale: 1, filter: "blur(5px)" },
-    },
-    downTrue: {
-      initial: { y: -200, scale: 1, filter: "blur(5px)" },
-    },
-    upFalse: {
-      initial: { y: -200, scale: 1, filter: "blur(5px)" },
-    },
-    downFalse: {
-      initial: { y: 200, scale: 1, filter: "blur(5px)" },
-    },
-  };
-
-  const transitionVal = boolean ? 200 : -200;
 
   const ref = useRef(null);
   const { scrollYProgress } = useScroll({
@@ -31,16 +11,14 @@ function Template({ data, all_data, boolean }) {
     offset: ["start end", "end end"],
   });
 
-  console.log(scrollYProgress)
-
   return (
     <motion.div
       className=" md:ml-16 lg:ml-32 flex items-center relative m-8"
       ref={ref}
       key={data.h2}
-      initial={{ scale: 0.7, y:100, position:'fixed'}}
-      whileInView={{scale:1, y:0, position:'relative'}}
-      viewport={{amount:0.8}}
+      initial={{ scale: 0.7, y:100}}
+      whileInView={{scale:1, y:0}}
+      // viewport={{amount:1}}
     >
         <div>{ref.current}</div>
       {/* Middle Cards */}

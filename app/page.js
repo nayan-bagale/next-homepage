@@ -1,7 +1,8 @@
 import Image from "next/image";
 import {BsCaretRight} from 'react-icons/bs'
 import Sports from '../components/experimental/page'
-import Facility from '../components/Sports/page'
+import Exp from "../components/experimental/exp";
+import Facility from "../components/Sports/page";
 
 export default function Home() {
   return (
@@ -56,7 +57,8 @@ export default function Home() {
         <IoTriangleSharp className="" />
       </div> */}
       {/* <Sports /> */}
-      <Facility/>
+      <Facility />
+      {/* <Exp/> */}
     </main>
   );
 }
