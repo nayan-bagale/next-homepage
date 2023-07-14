@@ -21,8 +21,10 @@ const data = {
     svg: {
       1: {
         img: "/badminton-small.svg",
+        widthMob: 42.03,
         width: 70.06,
         position: "right-[-2rem] top-[-0.4rem]",
+        positionMob: "absolute right-[-0.8rem] top-[-3px]",
       },
       2: {
         img: "/shuttel.svg",
@@ -47,8 +49,10 @@ const data = {
     svg: {
       1: {
         img: "/gym-small.svg",
+        widthMob: 42.03,
         width: 70.06,
         position: "right-[-2rem] top-[-0.4rem]",
+        positionMob: "absolute right-[-0.8rem] top-[-3px]",
       },
       2: {
         img: "/dumbell.svg",
@@ -73,8 +77,10 @@ const data = {
     svg: {
       1: {
         img: "/swim-small.svg",
+        widthMob: 60.03,
         width: 100.06,
         position: "right-[-2.5rem] top-[2rem]",
+        positionMob: "absolute right-[-1.6rem] top-[1.5rem]",
       },
       2: {
         img: "/poolh.svg",
@@ -100,7 +106,9 @@ const data = {
       1: {
         img: "/squash-small.svg",
         width: 100.06,
+        widthMob: 55.03,
         position: "right-[-2rem] top-[-0.4rem]",
+        positionMob: "absolute right-[-0.8rem] top-[-3px]",
       },
       2: {
         img: "/squash-mini.svg",
@@ -114,6 +122,8 @@ const data = {
 };
 
 function Page() {
+  const [mobile, setMobile] = useState(false)
+  console.log(mobile)
   const [select, setSelect] = useState("badminton");
   const [animateVal, setAnimateVal] = useState(1);
 
@@ -122,6 +132,7 @@ function Page() {
 
   const scrollContainerRef = useRef(null);
   const [scrollPosition, setScrollPosition] = useState(0);
+
   const handleScroll1 = () => {
     if (scrollContainerRef.current) {
       const { scrollTop, scrollHeight } = scrollContainerRef.current;
@@ -130,21 +141,25 @@ function Page() {
     }
 
      // Specify the scroll length at which you want the function to be executed
-      const scrollLength = totalHeight/5;
+      const scrollLength = totalHeight/6;
 
       // Check if the current scroll position is greater than or equal to the scroll length
       if (
         scrollPosition >= scrollLength &&
-        scrollPosition < scrollLength + scrollLength
+        scrollPosition < scrollLength + scrollLength 
       ) {
         // Call your desired function here
         yourFunction("gym");
       } else if (
         scrollPosition >= scrollLength + scrollLength &&
-        scrollPosition < scrollLength + scrollLength + scrollLength
+        scrollPosition <
+          scrollLength + scrollLength + scrollLength
       ) {
         yourFunction("swimming");
-      } else if (scrollPosition >= scrollLength + scrollLength + scrollLength) {
+      } else if (
+        scrollPosition >=
+        scrollLength + scrollLength + scrollLength
+      ) {
         yourFunction("squash");
       } else {
         yourFunction("badminton");
@@ -271,12 +286,12 @@ function Page() {
           className=" h-[8rem] absolute w-full top-0 z-30"
         ></div>
 
-        <Mob data={data[select]} />
+        <Mob data={data[select]} setMobile={setMobile} mobile={mobile} />
 
         <div className="flex items-center justify-evenly py-5 bottom-0 shadow-md bg-[#F2F9FF] absolute w-full">
           <div
-            className=" w-[2.5rem] h-[2.5rem] rounded-full bg-white relative"
-            onClick={() => setSelect("badminton")}
+            className=" w-[2.5rem] h-[2.5rem] rounded-full bg-white relative cursor-pointer "
+            onClick={() => {setSelect("badminton");setMobile(true);}}
           >
             <Image
               src={"/badminton-icon.svg"}
@@ -287,8 +302,8 @@ function Page() {
             />
           </div>
           <div
-            className=" w-[2.5rem] h-[2.5rem] rounded-full bg-white relative"
-            onClick={() => setSelect("gym")}
+            className=" w-[2.5rem] h-[2.5rem] rounded-full bg-white relative cursor-pointer "
+            onClick={() => {setSelect("gym");setMobile(true);}}
           >
             <Image
               src={"/gym-icon.svg"}
@@ -299,8 +314,8 @@ function Page() {
             />
           </div>
           <div
-            className=" w-[2.5rem] h-[2.5rem] rounded-full bg-white relative"
-            onClick={() => setSelect("swimming")}
+            className=" w-[2.5rem] h-[2.5rem] rounded-full bg-white relative cursor-pointer "
+            onClick={() => {setSelect("swimming");setMobile(true);}}
           >
             <Image
               src={"/swiming-icon.svg"}
@@ -311,8 +326,8 @@ function Page() {
             />
           </div>
           <div
-            className=" w-[2.5rem] h-[2.5rem] rounded-full bg-white relative"
-            onClick={() => setSelect("squash")}
+            className=" w-[2.5rem] h-[2.5rem] rounded-full bg-white relative cursor-pointer "
+            onClick={() => {setSelect("squash");setMobile(true);}}
           >
             <Image
               src={"/tennis-icon.svg"}

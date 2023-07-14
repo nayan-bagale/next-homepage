@@ -1,9 +1,12 @@
 "use client";
 import Image from "next/image";
+import { motion } from "framer-motion";
 
-function Mob({data}) {
+function Mob({ data, setMobile, mobile }) {
   return (
-    <>
+    <div className=" w-full"
+      style={{ display: mobile ? '' : 'none'}}
+    >
       <div className=" bg-slate-500 w-full min-h-[40vh]">
         <div className="grid grid-rows-2 grid-flow-col">
           <Image
@@ -29,40 +32,44 @@ function Mob({data}) {
           />
         </div>
       </div>
-      <div className=" bg-white shadow rounded-t-[3rem] w-full min-h-[60vh] p-10 flex flex-col gap-4 absolute bottom-0 pb-[6rem]">
+      <motion.div className=" bg-white shadow rounded-t-[3rem] w-full min-h-[60vh] p-10 flex flex-col gap-4 absolute bottom-0 pb-[6rem]"
+      initial={{ y: 600, opacity:0 }}
+      animate={{ y: 0, opacity:1 }}
+      transition={{ duration:2}}
+      >
         <Image
           src={"/close.svg"}
           width={20}
           height={0}
           alt="close"
-          className=" right-10 top-10 absolute"
-          onClick={() => alert('Closed')}
+          className=" right-10 top-10 absolute cursor-pointer"
+          onClick={() => setMobile(false)}
         />
         <div className=" flex items-end gap-4 mb-2">
           <div className=" w-[4rem] h-[4rem] rounded-full bg-[#F1F8FF] relative">
             <Image
               src={data.svg[1].img}
-              width={42.03}
+              width={data.svg[1].widthMob}
               height={0}
-              className=" absolute right-[-0.8rem] top-[-3px]"
+              className={data.svg[1].positionMob}
               alt={"badminton"}
             />
           </div>
-          <div className=" text-xl font-dosis font-bold"
-          style={{
-            color: data.color
-          }}>
+          <div
+            className=" ml-4 text-xl font-dosis font-bold"
+            style={{
+              color: data.color,
+            }}
+          >
             {data.h2}
           </div>
         </div>
         <div className=" text-lg font-bold font-dosis text-black">
           {data.h1}
         </div>
-        <div className=" text-justify text-xs text-black">
-          {data.p}
-        </div>
-      </div>
-    </>
+        <div className=" text-justify text-xs text-black">{data.p}</div>
+      </motion.div>
+    </div>
   );
 }
 
