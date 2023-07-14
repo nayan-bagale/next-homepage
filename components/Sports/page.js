@@ -23,7 +23,8 @@ const data = {
         img: "/badminton-small.svg",
         widthMob: 42.03,
         width: 70.06,
-        position: " right-[-1.5rem] xl:right-[-2rem] top-[-0.4rem] xl:w-[70px] w-[50px]",
+        position:
+          " right-[-1.5rem] xl:right-[-2rem] top-[-0.4rem] xl:w-[70px] w-[50px]",
         positionMob: "absolute right-[-0.8rem] top-[-3px]",
       },
       2: {
@@ -51,7 +52,8 @@ const data = {
         img: "/gym-small.svg",
         widthMob: 42.03,
         width: 70.06,
-        position: " right-[-1.5rem] xl:right-[-2rem] top-[-0.4rem] xl:w-[70px] w-[50px]",
+        position:
+          " right-[-1.5rem] xl:right-[-2rem] top-[-0.4rem] xl:w-[70px] w-[50px]",
         positionMob: "absolute right-[-0.8rem] top-[-3px]",
       },
       2: {
@@ -79,7 +81,8 @@ const data = {
         img: "/swim-small.svg",
         widthMob: 60.03,
         width: 100.06,
-        position: "right-[-2.5rem] xl:top-[2rem] top-[1.5rem] xl:w-[100px] w-[80px]",
+        position:
+          "right-[-2.5rem] xl:top-[2rem] top-[1.5rem] xl:w-[100px] w-[80px]",
         positionMob: "absolute right-[-1.6rem] top-[1.5rem]",
       },
       2: {
@@ -107,7 +110,8 @@ const data = {
         img: "/squash-small.svg",
         width: 100.06,
         widthMob: 55.03,
-        position: " right-[-1.5rem] xl:right-[-2rem] top-[-0.4rem] xl:w-[100px] w-[70px]",
+        position:
+          " right-[-1.5rem] xl:right-[-2rem] top-[-0.4rem] xl:w-[100px] w-[70px]",
         positionMob: "absolute right-[-0.8rem] top-[-3px]",
       },
       2: {
@@ -122,8 +126,8 @@ const data = {
 };
 
 function Page() {
-  const [mobile, setMobile] = useState(false)
-  console.log(mobile)
+  const [mobile, setMobile] = useState(false);
+  console.log(mobile);
   const [select, setSelect] = useState("badminton");
   const [animateVal, setAnimateVal] = useState(1);
 
@@ -140,31 +144,27 @@ function Page() {
       setTotalHeight(scrollHeight);
     }
 
-     // Specify the scroll length at which you want the function to be executed
-      const scrollLength = totalHeight/6;
+    // Specify the scroll length at which you want the function to be executed
+    const scrollLength = totalHeight / 6;
 
-      // Check if the current scroll position is greater than or equal to the scroll length
-      if (
-        scrollPosition >= scrollLength &&
-        scrollPosition < scrollLength + scrollLength 
-      ) {
-        // Call your desired function here
-        yourFunction("gym");
-      } else if (
-        scrollPosition >= scrollLength + scrollLength &&
-        scrollPosition <
-          scrollLength + scrollLength + scrollLength
-      ) {
-        yourFunction("swimming");
-      } else if (
-        scrollPosition >=
-        scrollLength + scrollLength + scrollLength
-      ) {
-        yourFunction("squash");
-      } else {
-        yourFunction("badminton");
-      }
-    };
+    // Check if the current scroll position is greater than or equal to the scroll length
+    if (
+      scrollPosition >= scrollLength &&
+      scrollPosition < scrollLength + scrollLength
+    ) {
+      // Call your desired function here
+      yourFunction("gym");
+    } else if (
+      scrollPosition >= scrollLength + scrollLength &&
+      scrollPosition < scrollLength + scrollLength + scrollLength
+    ) {
+      yourFunction("swimming");
+    } else if (scrollPosition >= scrollLength + scrollLength + scrollLength) {
+      yourFunction("squash");
+    } else {
+      yourFunction("badminton");
+    }
+  };
 
   useEffect(() => {
     if (scrollContainerRef.current) {
@@ -189,7 +189,6 @@ function Page() {
       return data[name].id;
     });
   };
-
 
   // Placeholder function to be executed when scrolling reaches the specified length
   const yourFunction = ($) => {
@@ -281,12 +280,13 @@ function Page() {
       </div>
 
       {/* Mobile View Section */}
-      <section className=" z-50 max-sm:flex hidden min-h-screen relative">
-        <div className=" h-[8rem] absolute w-full top-0 z-30"></div>
-
+      <section
+        className=" z-20 max-sm:flex hidden relative h-[8vh]"
+        style={{ height: mobile ? "100vh" : ""  }}
+      >
         <Mob data={data[select]} setMobile={setMobile} mobile={mobile} />
 
-        <div className="flex items-center justify-evenly py-5 bottom-0 bg-[#F2F9FF] absolute w-full">
+        <div className="flex items-center justify-evenly bottom-0 py-5 bg-[#F2F9FF] absolute w-full">
           <div
             className=" w-[2.5rem] h-[2.5rem] rounded-full bg-white relative cursor-pointer "
             onClick={() => {

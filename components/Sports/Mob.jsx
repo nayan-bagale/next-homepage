@@ -6,7 +6,7 @@ function Mob({ data, setMobile, mobile }) {
   console.log(mobile)
   return (
     <AnimatePresence>
-      <div className={" w-full"} style={{ display: mobile ? "" : "none" }}>
+      <div className={" w-full "} style={{ display: mobile ? "" : "none" }}>
         <motion.div
           className=" bg-white w-full min-h-[35vh]"
           initial={{ opacity: 0 }}
