@@ -23,7 +23,7 @@ const data = {
         img: "/badminton-small.svg",
         widthMob: 42.03,
         width: 70.06,
-        position: "right-[-2rem] top-[-0.4rem]",
+        position: " right-[-1.5rem] xl:right-[-2rem] top-[-0.4rem] xl:w-[70px] w-[50px]",
         positionMob: "absolute right-[-0.8rem] top-[-3px]",
       },
       2: {
@@ -51,7 +51,7 @@ const data = {
         img: "/gym-small.svg",
         widthMob: 42.03,
         width: 70.06,
-        position: "right-[-2rem] top-[-0.4rem]",
+        position: " right-[-1.5rem] xl:right-[-2rem] top-[-0.4rem] xl:w-[70px] w-[50px]",
         positionMob: "absolute right-[-0.8rem] top-[-3px]",
       },
       2: {
@@ -79,7 +79,7 @@ const data = {
         img: "/swim-small.svg",
         widthMob: 60.03,
         width: 100.06,
-        position: "right-[-2.5rem] top-[2rem]",
+        position: "right-[-2.5rem] xl:top-[2rem] top-[1.5rem] xl:w-[100px] w-[80px]",
         positionMob: "absolute right-[-1.6rem] top-[1.5rem]",
       },
       2: {
@@ -107,7 +107,7 @@ const data = {
         img: "/squash-small.svg",
         width: 100.06,
         widthMob: 55.03,
-        position: "right-[-2rem] top-[-0.4rem]",
+        position: " right-[-1.5rem] xl:right-[-2rem] top-[-0.4rem] xl:w-[100px] w-[70px]",
         positionMob: "absolute right-[-0.8rem] top-[-3px]",
       },
       2: {
@@ -200,7 +200,7 @@ function Page() {
     <>
       <div
         ref={scrollContainerRef}
-        className="max-sm:hidden h-[100vh] relative overflow-scroll facility"
+        className="max-sm:hidden h-[100vh] relative overflow-scroll facility snap-start"
       >
         <motion.section
           className="  relative w-full h-[300vh]"
@@ -211,9 +211,9 @@ function Page() {
           transition={{ duration: 2 }}
         >
           <div className=" sticky top-0">
-            <div className=" absolute top-[35%] md:ml-4 lg:ml-12">
+            <div className=" absolute top-[35%] md:ml-4 lg:ml-6 xl:ml-12">
               <div
-                className=" relative w-[50.63px] h-[50.63px] rounded-full mb-4 cursor-pointer "
+                className=" relative  w-[40px] h-[40px] xl:w-[50.63px] xl:h-[50.63px] rounded-full mb-4 cursor-pointer "
                 style={{
                   backgroundColor:
                     select !== "badminton" ? "#c1e5e9" : "#FFFFFF",
@@ -224,12 +224,12 @@ function Page() {
                   src={"/badminton-icon.svg"}
                   width={35.03}
                   height={39.65}
-                  className=" absolute right-[-0.90rem] top-[-0.3rem] "
+                  className=" absolute right-[-0.90rem] top-[-0.3rem] w-[28px] xl:w-[35px]"
                   alt="icon"
                 />
               </div>
               <div
-                className=" relative w-[50.63px] h-[50.63px] rounded-full mb-4 cursor-pointer "
+                className=" relative w-[40px] h-[40px] xl:w-[50.63px] xl:h-[50.63px] rounded-full mb-4 cursor-pointer "
                 style={{
                   backgroundColor: select !== "gym" ? "#c1e5e9" : "#FFFFFF",
                 }}
@@ -239,12 +239,12 @@ function Page() {
                   src={"/gym-icon.svg"}
                   width={30.87}
                   height={39.5}
-                  className=" absolute top-[-0.2rem] right-[-0.90rem]"
+                  className=" absolute top-[-0.2rem] right-[-0.90rem] w-[25px] xl:w-[30px]"
                   alt="icon"
                 />
               </div>
               <div
-                className=" relative w-[50.63px] h-[50.63px] rounded-full mb-4 cursor-pointer "
+                className=" relative w-[40px] h-[40px] xl:w-[50.63px] xl:h-[50.63px] rounded-full mb-4 cursor-pointer "
                 style={{
                   backgroundColor:
                     select !== "swimming" ? "#c1e5e9" : "#FFFFFF",
@@ -260,7 +260,7 @@ function Page() {
                 />
               </div>
               <div
-                className=" relative w-[50.63px] h-[50.63px] rounded-full mb-4 cursor-pointer "
+                className=" relative w-[40px] h-[40px] xl:w-[50.63px] xl:h-[50.63px] rounded-full mb-4 cursor-pointer "
                 style={{
                   backgroundColor: select !== "squash" ? "#c1e5e9" : "#FFFFFF",
                 }}
@@ -270,28 +270,29 @@ function Page() {
                   src={"/tennis-icon.svg"}
                   width={45.3}
                   height={38.13}
-                  className=" absolute right-[-1.2rem] top-[-0.2rem]"
+                  className=" absolute right-[-1rem] xl:right-[-1.2rem] top-[-0.2rem] w-[38px] xl:w-[45px]"
                   alt="icon"
                 />
               </div>
             </div>
-            <Template data={data[select]} all_data={data} boolean={boolean} />
+            <Template select={select} all_data={data} boolean={boolean} />
           </div>
         </motion.section>
       </div>
 
       {/* Mobile View Section */}
-      <section className=" relative max-sm:flex hidden min-h-screen">
-        <div
-          className=" h-[8rem] absolute w-full top-0 z-30"
-        ></div>
+      <section className=" z-50 max-sm:flex hidden min-h-screen relative">
+        <div className=" h-[8rem] absolute w-full top-0 z-30"></div>
 
         <Mob data={data[select]} setMobile={setMobile} mobile={mobile} />
 
-        <div className="flex items-center justify-evenly py-5 bottom-0 shadow-md bg-[#F2F9FF] absolute w-full">
+        <div className="flex items-center justify-evenly py-5 bottom-0 bg-[#F2F9FF] absolute w-full">
           <div
             className=" w-[2.5rem] h-[2.5rem] rounded-full bg-white relative cursor-pointer "
-            onClick={() => {setSelect("badminton");setMobile(true);}}
+            onClick={() => {
+              setSelect("badminton");
+              setMobile(true);
+            }}
           >
             <Image
               src={"/badminton-icon.svg"}
@@ -303,7 +304,10 @@ function Page() {
           </div>
           <div
             className=" w-[2.5rem] h-[2.5rem] rounded-full bg-white relative cursor-pointer "
-            onClick={() => {setSelect("gym");setMobile(true);}}
+            onClick={() => {
+              setSelect("gym");
+              setMobile(true);
+            }}
           >
             <Image
               src={"/gym-icon.svg"}
@@ -315,7 +319,10 @@ function Page() {
           </div>
           <div
             className=" w-[2.5rem] h-[2.5rem] rounded-full bg-white relative cursor-pointer "
-            onClick={() => {setSelect("swimming");setMobile(true);}}
+            onClick={() => {
+              setSelect("swimming");
+              setMobile(true);
+            }}
           >
             <Image
               src={"/swiming-icon.svg"}
@@ -327,7 +334,10 @@ function Page() {
           </div>
           <div
             className=" w-[2.5rem] h-[2.5rem] rounded-full bg-white relative cursor-pointer "
-            onClick={() => {setSelect("squash");setMobile(true);}}
+            onClick={() => {
+              setSelect("squash");
+              setMobile(true);
+            }}
           >
             <Image
               src={"/tennis-icon.svg"}
